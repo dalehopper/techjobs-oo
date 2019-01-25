@@ -27,6 +27,17 @@ public class JobForm {
         with correct validation attributes and display names.
         Don't forget to add getters and setters
      */
+    @NotNull
+   // @Size(min=2, message = "Location must be at least 2 characters!")
+    private Location location;
+
+    @NotNull
+  //  @Size(min=1, message = "Skill must not be empty")
+    private CoreCompetency coreCompetency;
+
+    @NotNull
+    //@Size(min=1, message = "Skill must not be empty")
+    private PositionType positionType;
 
     private ArrayList<Employer> employers;
     private ArrayList<Location> locations;
@@ -42,6 +53,9 @@ public class JobForm {
         */
 
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
@@ -91,5 +105,29 @@ public class JobForm {
 
     public void setPositionTypes(ArrayList<PositionType> positionTypes) {
         this.positionTypes = positionTypes;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(CoreCompetency coreCopetency) {
+        this.coreCompetency = coreCopetency;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
     }
 }
